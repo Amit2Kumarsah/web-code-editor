@@ -66,6 +66,7 @@ const CodeEditor = () => {
   const [css, setCss] = useState('h1{\n    color: green;\n}');
   const [js, setJs] = useState('const h1 = document.querySelector("h1");\nh1.innerText = "Hello, from Interactive World!";');
   const [output, setOutput] = useState('');
+  const [choose, setChoose] = useState("HTML");
 
   const clearEditors = () => {
     setHtml('');
@@ -101,6 +102,11 @@ const CodeEditor = () => {
       <ButtonsContainer>
         <Button onClick={clearEditors}>Clear</Button>
         <Button onClick={runCode}>Run</Button>
+        <select name="choose" className='choose' onChange={(e) => setChoose(e.target.value)}>
+          <option value="HTML">HTML</option>
+          <option value="CSS">CSS</option>
+          <option value="Js">JS</option>
+        </select>
       </ButtonsContainer>
       <Editors>
         <AceEditor
@@ -113,6 +119,7 @@ const CodeEditor = () => {
           width="33%"
           height="100%"
           fontSize={20}
+          className={choose === "HTML"?'choosen':"v"}
         />
         <AceEditor
           mode="css"
@@ -124,6 +131,7 @@ const CodeEditor = () => {
           width="33%"
           height="100%"
           fontSize={20}
+          className={choose==="CSS" ? "choosen":"noneChoosen"}
         />
         <AceEditor
           mode="javascript"
@@ -135,6 +143,7 @@ const CodeEditor = () => {
           width="33%"
           height="60vh"
           fontSize={20}
+          className={choose === "Js" ? "choosen":"noneChoosen"}
         />
       </Editors>
       <Output>

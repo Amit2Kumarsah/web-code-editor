@@ -6,3 +6,36 @@
 p{
     color: red;
 }
+
+
+.choose{
+    display: none;
+    margin: 20px;
+    border: none;
+    border-radius: 5px;
+    background:linear-gradient(to right,salmon, rgb(187, 127, 120)) ;
+    color: black;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+
+@media (max-width:1000px){
+    .choose{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .noneChoosen{
+        display: none;
+    }
+
+    .choosen{
+        display:flex;
+        flex: 1;
+    }
+    .v{
+        display: none;
+    }
+}
